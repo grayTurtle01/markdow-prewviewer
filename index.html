@@ -31,12 +31,31 @@
 
     <script type="text/babel">
       class App extends React.Component{
+        constructor(props){
+          super(props)
+
+          this.state = {
+            preview : '',
+          }
+        }
+
+        handleChange = (e) => {
+          let input = e.target.value
+          
+          this.setState( (state, props) =>({
+              preview: input
+            })
+          )
+
+        }
 
         render(){
           return(
             <div className="d-flex justify-content-around mt-3">
-              <textarea id="editor"></textarea>
-              <div id="preview"></div>
+              <textarea id="editor" onChange={this.handleChange}></textarea>
+              <div id="preview" >
+                {this.state.preview}
+              </div>
             </div>
           )
         }
