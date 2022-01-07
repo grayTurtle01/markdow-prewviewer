@@ -37,8 +37,20 @@
           super(props)
 
           this.state = {
+            input: '# Hello from State \n## Sub Heading \n [Link](http://x.com) \n\n `alert("hello js")` \n  ```\nlet x = 42; \nalert(x)\n```\n- first\n- second\n > Dont be Evil\n **bold text**\n\n ![Imge](https://cdn-images-1.medium.com/max/1200/1*MotlWcSa2n6FrOx3ul89kw.png) ',
             preview : '',
           }
+        }
+
+        componentDidMount = () => {
+
+          let html = marked.parse(this.state.input)
+          
+          this.setState({
+            preview: marked.parse(this.state.input)
+          })
+
+          document.querySelector("#preview").innerHTML = html
         }
 
         handleChange = (e) => {
@@ -47,6 +59,7 @@
           let html = marked.parse(input)
                 
           this.setState( (state, props) =>({
+              input: input,
               preview: html
             })
           )
@@ -58,7 +71,7 @@
         render(){
           return(
             <div className="d-flex justify-content-around mt-3">
-              <textarea id="editor" onChange={this.handleChange}></textarea>
+              <textarea id="editor" value={this.state.input} onChange={this.handleChange}></textarea>
               <div id="preview" >
               </div>
             </div>
