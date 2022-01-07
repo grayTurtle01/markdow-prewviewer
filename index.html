@@ -13,7 +13,9 @@
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" integrity="sha512-kp7YHLxuJDJcOzStgd6vtpxr4ZU9kjn77e6dBsivSz+pUuAuMlE2UTdKB7jjsWT84qbS8kdCWHPETnP/ctrFsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      
+
+    <!-- Marked Library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 
     <link rel="stylesheet" href="style.css">
@@ -41,11 +43,15 @@
 
         handleChange = (e) => {
           let input = e.target.value
-          
+
+          let html = marked.parse(input)
+                
           this.setState( (state, props) =>({
-              preview: input
+              preview: html
             })
           )
+
+          document.querySelector("#preview").innerHTML = html
 
         }
 
@@ -54,7 +60,6 @@
             <div className="d-flex justify-content-around mt-3">
               <textarea id="editor" onChange={this.handleChange}></textarea>
               <div id="preview" >
-                {this.state.preview}
               </div>
             </div>
           )
