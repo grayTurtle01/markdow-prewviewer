@@ -17,6 +17,8 @@
     <!-- Marked Library -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  
 
     <link rel="stylesheet" href="style.css">
 
@@ -75,9 +77,19 @@
         render(){
           return(
             <div className="d-flex justify-content-around mt-3">
-              <textarea id="editor" value={this.state.input} onChange={this.handleChange}></textarea>
-              <div id="preview" >
+            
+              <div >
+                <div className="toolbar">
+                  <div>
+                   <i className="fab fa-free-code-camp"></i> Editor
+                  </div>
+                   <i className="fa fa-arrows-alt"></i>
+                </div>
+                <textarea id="editor" value={this.state.input} onChange={this.handleChange}></textarea>
               </div>
+              
+              <div id="preview" ></div>
+              
             </div>
           )
         }

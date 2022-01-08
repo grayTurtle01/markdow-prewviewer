@@ -1,11 +1,23 @@
-textarea{
+body{
+  background: #87b5b5;
+}
+
+#editor{
   width: 500px;
-  height: 600px;
+  height: 300px;
   resize: none;
 }
 
 #preview{
   width: 500px;
-  height: 600px;
+  height: 300px;
   border: 1px solid black;
+  overflow: scroll;
+}
+
+.toolbar{
+  background: #4aa3a3;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
 }
