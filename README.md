@@ -8,4 +8,4 @@ See markdown in real time
 
 # Demos 💻
 
-[Page](https://grayturtle01.github.io/markdow-prewviewer/)
+[GitHub Page](https://grayturtle01.github.io/markdow-prewviewer/)
