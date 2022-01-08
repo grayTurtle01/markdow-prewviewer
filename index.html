@@ -125,7 +125,10 @@
                   <div>
                    <i className="fab fa-free-code-camp"></i> Editor
                   </div>
-                    <i className="fa fa-arrows-alt" onClick={this.resizeEditor}></i>
+                    { this.state.editorBig ?
+                      <i className="fa fa-compress" onClick={this.resizeEditor}></i>:
+                      <i className="fa fa-arrows-alt" onClick={this.resizeEditor}></i>
+                    }
                 </div>
 
                 
@@ -140,7 +143,11 @@
                   <div>
                    <i className="fab fa-free-code-camp"></i> Previewer
                   </div>
-                    <i className="fa fa-arrows-alt" onClick={this.resizePreviewer}></i>
+                    {
+                      this.state.previewerBig ?
+                      <i className="fa fa-compress" onClick={this.resizePreviewer}></i> : 
+                      <i className="fa fa-arrows-alt" onClick={this.resizePreviewer}></i>
+                    }
                 </div>
               
                 <div id="preview" ></div>
