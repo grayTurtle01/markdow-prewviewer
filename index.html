@@ -46,6 +46,7 @@
             input: '# Hello from State \n## Sub Heading \n [Link](http://x.com) \n\n `alert("hello js")` \n  ```\nlet x = 42; \nalert(x)\n```\n- first\n- second\n > Dont be Evil\n **bold text**\n\n ![Imge](https://cdn-images-1.medium.com/max/1200/1*MotlWcSa2n6FrOx3ul89kw.png) ',
             preview : '',
             editorBig: false,
+            previewerBig: false,
             
           }
         }
@@ -94,6 +95,26 @@
           
         }
 
+        resizePreviewer = () => {
+          let previewer = document.querySelector("#preview")
+
+          if( this.state.previewerBig == false){
+            previewer.style.height = "500px"
+            this.setState({
+              previewerBig: true
+            })
+          }
+          else{
+            previewer.style.height = "300px"
+            this.setState({
+              previewerBig: false
+            })
+          }
+          
+        }
+
+
+
         render(){
           return(
             <div className="d-flex justify-content-around mt-3">
@@ -112,8 +133,19 @@
                 
               </div>
 
+
+              <div>
               
-              <div id="preview" ></div>
+                <div className="toolbar">
+                  <div>
+                   <i className="fab fa-free-code-camp"></i> Previewer
+                  </div>
+                    <i className="fa fa-arrows-alt" onClick={this.resizePreviewer}></i>
+                </div>
+              
+                <div id="preview" ></div>
+
+              </div>
               
             </div>
           )
